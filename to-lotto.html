@@ -24,60 +24,24 @@
             --safe-area-bottom: env(safe-area-inset-bottom, 0px);
         }
 
-        /* === 1. Typography Hierarchy (Professional Look) === */
-        /* หัวข้อต้องหนา (Bold/ExtraBold) */
+        /* === 1. Typography === */
         h1, h2, h3, h4, h5, h6, .font-bold-custom { font-weight: 700 !important; letter-spacing: -0.01em; }
-        
-        /* เนื้อหาทั่วไปต้องบาง (Light/Regular) เพื่อความ Modern */
         body, p, span, li, .font-light-custom { font-weight: 300; }
-        
-        /* Input และปุ่มกด ให้อ่านง่าย (Regular/Medium) */
         input, select, button, .font-medium-custom { font-weight: 400; }
 
-        /* === 2. Smoothness & Transitions === */
-        /* Animation ปุ่มกดเด้ง (Haptic Feel) */
+        /* === 2. Animation === */
         .btn-press-anim { transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s; }
         .btn-press-anim:active { transform: scale(0.96); }
-
-        /* === 3. Smart Loading State (Spinner) === */
-        .btn-loading { 
-            pointer-events: none; 
-            opacity: 0.85; 
-            position: relative; 
-            color: transparent !important; 
-        }
-        .btn-loading::after {
-            content: ""; position: absolute; top: 50%; left: 50%; width: 1.2em; height: 1.2em;
-            margin-top: -0.6em; margin-left: -0.6em;
-            border: 2px solid #fff; border-top-color: transparent; border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
+        .btn-loading { pointer-events: none; opacity: 0.85; position: relative; color: transparent !important; }
+        .btn-loading::after { content: ""; position: absolute; top: 50%; left: 50%; width: 1.2em; height: 1.2em; margin-top: -0.6em; margin-left: -0.6em; border: 2px solid #fff; border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* === ปรับแต่งพื้นฐานและล็อคหน้าจอ === */
+        /* === Base === */
         html { width: 100%; height: 100%; overflow-x: hidden; }
-        body {
-            font-family: 'Kanit', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-on-light);
-            min-height: 100dvh;
-            margin: 0; padding: 0;
-            position: relative;
-            overflow-x: hidden; /* ห้ามเลื่อนแนวนอน */
-            touch-action: pan-y; /* เลื่อนได้แค่แนวตั้ง */
-            overscroll-behavior-y: none;
-            transition: background-color 0.3s ease;
-            -webkit-font-smoothing: antialiased; /* ตัวหนังสือคมชัด */
-        }
-        
-        .max-w-md-wrapper {
-            width: 100%; max-width: 448px; margin-left: auto; margin-right: auto;
-            background-color: transparent; min-height: 100dvh; position: relative;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05);
-            overflow-x: hidden;
-        }
+        body { font-family: 'Kanit', sans-serif; background-color: var(--background-color); color: var(--text-on-light); min-height: 100dvh; margin: 0; padding: 0; position: relative; overflow-x: hidden; touch-action: pan-y; overscroll-behavior-y: none; transition: background-color 0.3s ease; -webkit-font-smoothing: antialiased; }
+        .max-w-md-wrapper { width: 100%; max-width: 448px; margin-left: auto; margin-right: auto; background-color: transparent; min-height: 100dvh; position: relative; box-shadow: 0 0 15px rgba(0,0,0,0.05); overflow-x: hidden; }
 
-        /* === Utility Classes === */
+        /* === Components === */
         .bg-brand-gradient { background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%); }
         .text-brand-primary { color: var(--primary-color); }
         .bg-brand-primary { background-color: var(--primary-color); color: var(--text-on-dark); }
@@ -95,62 +59,55 @@
         .login-bg { position: relative; overflow: hidden; min-height: 100vh; }
         .login-decorator-1 { position: absolute; top: -100px; left: -100px; width: 300px; height: 300px; background: rgba(34, 197, 94, 0.15); border-radius: 50%; filter: blur(60px); z-index: 0; pointer-events: none; }
         .login-decorator-2 { position: absolute; bottom: -50px; right: -50px; width: 250px; height: 250px; background: rgba(234, 179, 8, 0.1); border-radius: 50%; filter: blur(50px); z-index: 0; pointer-events: none; }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-        }
+        .glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); }
         .input-wrapper { position: relative; transition: all 0.3s; }
-        .input-icon {
-            position: absolute; top: 50%; left: 16px; transform: translateY(-50%);
-            color: #15803d; font-size: 1.1rem; transition: color 0.3s; z-index: 10;
-        }
-        .custom-input {
-            padding-left: 3rem !important; background-color: #ffffff; border: 1px solid #e2e8f0; transition: all 0.3s;
-            font-weight: 400; /* Medium weight for input */
-        }
+        .input-icon { position: absolute; top: 50%; left: 16px; transform: translateY(-50%); color: #15803d; font-size: 1.1rem; transition: color 0.3s; z-index: 10; }
+        .custom-input { padding-left: 3rem !important; background-color: #ffffff; border: 1px solid #e2e8f0; transition: all 0.3s; font-weight: 400; }
         .custom-input:focus { border-color: #15803d; box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.1); }
-        .btn-gradient {
-            background: linear-gradient(90deg, #16a34a 0%, #15803d 100%);
-            box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3); transition: all 0.3s;
-        }
+        .btn-gradient { background: linear-gradient(90deg, #16a34a 0%, #15803d 100%); box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3); transition: all 0.3s; }
         .btn-gradient:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4); }
 
-        /* === SLIDER FIXES === */
-        .main-slider, .promo-slider, .trending-slider { padding-bottom: 30px !important; overflow: hidden !important; width: 100%; }
-        .main-slider .swiper-slide img { width: 100%; height: auto; aspect-ratio: 21/9; object-fit: cover; border-radius: 12px; }
-        .main-slider .swiper-slide { width: 90% !important; margin-right: 10px; }
+        /* === SLIDER FIXES (แก้ไขให้ตรงกลาง) === */
+        .main-slider { padding-top: 10px; padding-bottom: 30px !important; overflow: hidden !important; width: 100%; }
+        .main-slider .swiper-wrapper { align-items: center; } /* จัดแนวแกนตั้ง */
+        .main-slider .swiper-slide { 
+            width: 90% !important; /* กว้าง 90% ของจอ เพื่อให้เห็นขอบซ้ายขวา */
+            height: auto;
+            transform: scale(0.92); /* ย่อภาพข้างๆ ลง */
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0.6; /* ภาพข้างๆ จางลง */
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .main-slider .swiper-slide-active {
+            transform: scale(1); /* ภาพตรงกลางขยายเต็ม */
+            opacity: 1;
+            z-index: 10;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* เงาให้ดูโดดเด่น */
+        }
+        .main-slider .swiper-slide img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 21/9; display: block; }
+
         .promo-slider .swiper-slide { width: 80% !important; max-width: 280px; flex-shrink: 0; }
         .trending-slider .swiper-slide { width: 40% !important; max-width: 140px; flex-shrink: 0; }
 
-        /* === Payout Section Update === */
+        /* === Payout Section === */
         .payout-section-bg { background: var(--primary-color); color: white; border-radius: 1rem; padding: 1.5rem 1rem; margin: 1rem; box-shadow: 0 10px 25px rgba(26, 126, 42, 0.2); }
-        .payout-card-new {
-            background: white; border-radius: 12px; padding: 1rem 0.5rem; text-align: center; height: 100%;
-            display: flex; flex-direction: column; justify-content: space-between; color: var(--text-on-light);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+        .payout-card-new { background: white; border-radius: 12px; padding: 1rem 0.5rem; text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: space-between; color: var(--text-on-light); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .payout-rate-big { font-size: 2rem; font-weight: 800; color: #E53E3E; line-height: 1; }
         .payout-logo-footer { display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: 8px; padding-top: 8px; border-top: 1px solid #f0f0f0; }
-        
         .promo-card { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); transition: transform 0.2s ease; border-radius: 0.75rem; overflow: hidden; }
         .trending-card { width: 100%; height: 160px; border-radius: 0.75rem; overflow: hidden; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display: flex; flex-direction: column; transition: transform 0.2s ease; text-decoration: none; }
         .trending-img { width: 100%; height: 110px; object-fit: cover; }
         .trending-body { flex: 1; display: flex; align-items: center; justify-content: center; padding: 0.5rem; background: white; }
         .trending-title { font-size: 0.85rem; font-weight: 600; color: #1e293b; text-align: center; line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-        /* === Betting List Fix === */
-        .lottery-card-modern {
-            background: white; border-radius: 1rem; overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #f0f0f0; margin-bottom: 1rem; position: relative;
-        }
+        /* === Betting List === */
+        .lottery-card-modern { background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); transition: transform 0.2s, box-shadow 0.2s; border: 1px solid #f0f0f0; margin-bottom: 1rem; position: relative; }
         .lottery-card-modern:active { transform: scale(0.98); }
         .lottery-card-header { padding: 1rem; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to right, #ffffff, #f8fafc); border-bottom: 1px solid #f1f5f9; }
         .lottery-badge { font-size: 0.7rem; padding: 0.25rem 0.75rem; border-radius: 9999px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
         .badge-open { background-color: #dcfce7; color: #166534; }
         .badge-close { background-color: #fee2e2; color: #991b1b; }
-        
         .lottery-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background-color: #f1f5f9; }
         .lottery-info-item { background-color: white; padding: 0.75rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .info-label { font-size: 0.7rem; color: #64748b; margin-bottom: 0.2rem; font-weight: 300; }
@@ -158,54 +115,37 @@
         .info-value.highlight { color: var(--primary-color); }
         .lottery-action-btn { width: 100%; background: var(--primary-color); color: white; text-align: center; padding: 0.75rem; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
         
-        /* === Button Fix === */
+        /* === Keypad === */
         .keypad-btn { background-color: var(--surface-color); border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 0.75rem 0; font-size: 1.25rem; font-weight: 500; color: var(--text-on-light); transition: all 150ms; }
         .keypad-btn:active { background-color: #f7fafc; transform: scale(0.95); }
         .bet-option { background-color: #fff; border: 1px solid var(--primary-color); color: var(--primary-color); position: relative; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: all 0.2s; }
         .bet-option.active { background-color: var(--primary-color); color: white; font-weight: 600; }
         .bet-option:active { transform: scale(0.95); }
         .odds-badge { position: absolute; top: -0.5rem; right: -0.5rem; background-color: #ef4444; color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 9999px; }
-        
         .number-box-container { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 0.5rem; }
         .number-box { width: 40px; height: 50px; display: flex; align-items: center; justify-content: center; border-bottom: 2px solid var(--primary-color); font-size: 1.875rem; font-weight: 600; color: #333; }
         .number-box.empty { color: #d1d5db; }
 
+        /* === Profile & Nav === */
         .bg-summary-gradient { background: linear-gradient(135deg, var(--primary-color) 0%, #63b379 100%); }
         .bg-brand-teal-gradient { background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%); }
         .content-area { background-color: var(--background-color); border-top-left-radius: 2rem; border-top-right-radius: 2rem; margin-top: -2rem; padding-top: 2rem; }
-
-        /* === 3D Navigation === */
-        .bottom-nav { 
-            position: fixed; bottom: 0; left: 0; right: 0; width: 100%; max-width: 448px; margin: 0 auto; 
-            height: calc(70px + var(--safe-area-bottom));
-            background-color: #ffffff; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-around; align-items: center; z-index: 1000; box-shadow: 0 -4px 20px rgba(0,0,0,0.08); 
-            padding-bottom: calc(10px + var(--safe-area-bottom));
-        }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; width: 100%; max-width: 448px; margin: 0 auto; height: calc(70px + var(--safe-area-bottom)); background-color: #ffffff; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-around; align-items: center; z-index: 1000; box-shadow: 0 -4px 20px rgba(0,0,0,0.08); padding-bottom: calc(10px + var(--safe-area-bottom)); }
         .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; text-decoration: none; color: #94a3b8; transition: all 0.3s ease; }
         .nav-icon-3d { width: 32px; height: 32px; object-fit: contain; margin-bottom: 4px; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1)); }
         .nav-item.active .nav-icon-3d { transform: translateY(-8px) scale(1.2); filter: drop-shadow(0 8px 6px rgba(0,0,0,0.15)); }
         .nav-item.active .nav-text { color: var(--primary-color); font-weight: 700; transform: translateY(-2px); }
-        .nav-text { font-weight: 300; } /* Text บาง */
+        .nav-text { font-weight: 300; }
 
-        /* === Modal & Popup === */
-        .modal-overlay { 
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0; 
-            background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(6px); z-index: 2000; 
-            display: flex; align-items: center; justify-content: center; padding: 1.5rem; animation: fadeIn 0.3s ease forwards;
-        }
+        /* === Modals === */
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(6px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 1.5rem; animation: fadeIn 0.3s ease forwards; }
         .modal-overlay.hidden { display: none; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes zoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        
-        .modal-content { 
-            background-color: #ffffff; border-radius: 1.5rem; padding: 0; width: 90%; max-width: 360px; 
-            text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.2); animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; overflow: hidden; position: relative;
-        }
-        
+        .modal-content { background-color: #ffffff; border-radius: 1.5rem; padding: 0; width: 90%; max-width: 360px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.2); animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; overflow: hidden; position: relative; }
         .article-modal-img { width: 100%; height: 200px; object-fit: cover; }
         .article-modal-body { padding: 1.5rem; max-height: 60vh; overflow-y: auto; text-align: left; }
         .article-date { font-size: 0.75rem; color: #64748b; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 4px; font-weight: 300; }
-        
         .modal-header-bg { background: linear-gradient(135deg, #f0fdf4 0%, #e6fffa 100%); padding: 2rem 1.5rem 1rem 1.5rem; position: relative; }
         .modal-icon-wrapper { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; font-size: 2rem; color: white; box-shadow: 0 8px 20px rgba(0,0,0,0.1); position: relative; z-index: 10; background: white; }
         .modal-icon.success { color: var(--success-color); background: #dcfce7; }
@@ -219,23 +159,15 @@
         .modal-btn.primary { background: linear-gradient(90deg, #16a34a 0%, #15803d 100%); color: white; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3); }
         .modal-btn.secondary { background-color: #f1f5f9; color: #64748b; }
         .modal-btn:active { transform: scale(0.96); }
-
+        
+        /* === Misc === */
         .toast-container { bottom: calc(5rem + var(--safe-area-bottom)); left: 50%; transform: translateX(-50%); transition: opacity 0.3s, transform 0.3s; z-index: 999; }
         .toast-show { opacity: 1; transform: translateX(-50%) translateY(0); }
         .toast-hide { opacity: 0; transform: translateX(-50%) translateY(20px); }
-        
         @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .chat-window-anim { animation: slideUp 0.3s ease-out forwards; }
-        
         #nprogress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--primary-color); z-index: 9999; transition: width 0.3s ease; width: 0%; }
-        
-        .global-back-btn {
-            position: absolute; top: 15px; left: 15px; z-index: 1000;
-            width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); color: var(--primary-color);
-            cursor: pointer; transition: all 0.2s;
-        }
+        .global-back-btn { position: absolute; top: 15px; left: 15px; z-index: 1000; width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); color: var(--primary-color); cursor: pointer; transition: all 0.2s; }
         .global-back-btn:active { transform: scale(0.9); }
         .global-back-btn.hidden { display: none; }
     </style>
@@ -266,6 +198,7 @@
 
         <main id="main-content-area" class="flex-grow pb-20"> 
 
+            <!-- Login Page -->
             <section id="page-login" class="p-6 min-h-screen flex flex-col justify-center items-center login-bg">
                 <div class="login-decorator-1"></div>
                 <div class="login-decorator-2"></div>
@@ -376,7 +309,12 @@
             <!-- Bet Page -->
             <section id="page-bet" class="hidden">
                 <div id="bet-page-lottery-list" class="p-4 bg-[var(--background-color)] min-h-[calc(100vh-100px)]">
-                    <h1 class="text-2xl font-extrabold text-center my-4" style="color: #1a5d2a;">แทงหวย TH - LOTTO</h1>
+                    <div class="flex justify-between items-center px-2 my-4">
+                        <h1 class="text-2xl font-extrabold" style="color: #1a5d2a;">แทงหวย</h1>
+                        <button onclick="showBetHistoryPage()" class="bg-white border border-green-200 text-green-700 px-3 py-1.5 rounded-lg text-xs font-bold shadow-sm flex items-center gap-1 btn-press-anim">
+                            <i class="fas fa-receipt"></i> โพยของฉัน
+                        </button>
+                    </div>
                     <div class="space-y-4" id="lottery-list-content"></div>
                 </div>
 
@@ -434,6 +372,48 @@
                 </div>
             </section>
             
+            <!-- NEW SECTION: Bet History Page -->
+            <section id="page-bet-history" class="hidden bg-[var(--background-color)] min-h-[calc(100vh-70px)]">
+                <div class="bg-brand-gradient p-4 text-white sticky top-0 z-10 shadow-md">
+                    <div class="flex items-center gap-3">
+                        <button onclick="showPage('page-bet')" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition btn-press-anim">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <h1 class="text-xl font-bold">โพยของฉัน</h1>
+                    </div>
+                </div>
+                
+                <div class="p-4">
+                    <!-- Filters -->
+                    <div class="flex gap-2 mb-4 overflow-x-auto pb-2 no-scrollbar">
+                        <button onclick="filterBetHistory('all')" class="px-4 py-2 rounded-full bg-brand-teal text-white text-xs font-bold whitespace-nowrap btn-press-anim filter-btn active" data-filter="all">ทั้งหมด</button>
+                        <button onclick="filterBetHistory('won')" class="px-4 py-2 rounded-full bg-white text-gray-600 text-xs font-bold whitespace-nowrap border border-gray-200 btn-press-anim filter-btn" data-filter="won">ถูกรางวัล</button>
+                        <button onclick="filterBetHistory('pending')" class="px-4 py-2 rounded-full bg-white text-gray-600 text-xs font-bold whitespace-nowrap border border-gray-200 btn-press-anim filter-btn" data-filter="pending">รอผล</button>
+                        <button onclick="filterBetHistory('lose')" class="px-4 py-2 rounded-full bg-white text-gray-600 text-xs font-bold whitespace-nowrap border border-gray-200 btn-press-anim filter-btn" data-filter="lose">ไม่ถูกรางวัล</button>
+                    </div>
+
+                    <!-- Summary Card -->
+                    <div class="bg-white rounded-xl p-4 card-shadow mb-4 flex justify-between items-center">
+                        <div>
+                            <p class="text-xs text-gray-400 font-light">ยอดถูกรางวัลรวม (หน้าจอนี้)</p>
+                            <p id="history-total-win" class="text-xl font-bold text-green-600">฿0.00</p>
+                        </div>
+                        <div class="text-right">
+                             <p class="text-xs text-gray-400 font-light">จำนวนรายการ</p>
+                             <p id="history-count" class="text-lg font-bold text-gray-800">0</p>
+                        </div>
+                    </div>
+
+                    <!-- History List -->
+                    <div id="bet-history-list" class="space-y-3 pb-20">
+                        <div class="text-center py-10">
+                            <i class="fas fa-spinner fa-spin text-brand-primary text-2xl"></i>
+                            <p class="text-xs text-gray-400 mt-2 font-light">กำลังโหลดข้อมูล...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Results Page -->
             <section id="page-results" class="hidden p-4">
                 <div class="flex-1 overflow-y-auto">
@@ -626,7 +606,7 @@
     
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyrXxXWxWeO8trECnmvNHYiHo0lkg0gqkbRzILTjzVkxIJSrdxZoFbeNCyFn9v_2LPn/exec';
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyuK6l42S6uB3nQFLxC5e0MfVAQ9OMiod_MzkBpeS0gW_g-r3i_BemavV07iPc5q3Onfw/exec';
         
         const IMGBB_API_KEY = '8e158836403df86adce925f6108ebea0'; 
 
@@ -635,7 +615,8 @@
             banks: null, walletData: null, uiTexts: {}, registrationData: {},
             currentTransaction: { id: null, type: null, amount: 0, promoDetails: '' },
             bettingTimerInterval: null, 
-            uploadTimerInterval: null
+            uploadTimerInterval: null,
+            betHistory: null // New State
         };
 
         const flagMap = {
@@ -647,8 +628,6 @@
             'UK_STOCK': { country: 'อังกฤษ', flag: 'https://flagcdn.com/w20/gb.png' }
         };
 
-        // --- NEW HELPER: Smart Loading Button ---
-        // ฟังก์ชันนี้จะใส่สถานะ Loading และล็อคปุ่ม 600-800ms ขั้นต่ำ เพื่อความ Professional
         async function withButtonLoading(btnOrId, actionFn, minDelay = 700) {
             let btn = (typeof btnOrId === 'string') ? document.getElementById(btnOrId) : btnOrId;
             if(!btn) { await actionFn(); return; }
@@ -673,8 +652,6 @@
             }
         }
 
-        // --- NEW HELPER: Clear Upload Form ---
-        // ฟังก์ชันเคลียร์ค่าฟอร์มฝากเงิน (แก้ปัญหาไฟล์ค้าง)
         function clearUploadForm() {
             const fileInput = document.getElementById('slip-upload-input');
             const timeInput = document.getElementById('transfer-time-input');
@@ -727,6 +704,7 @@
                 if (pageId === 'page-results') fetchResults();
                 if (pageId === 'page-wallet') { showWalletSubPage('wallet-main-content'); fetchWalletData(); }
                 if (pageId === 'page-profile') updateProfilePageData();
+                if (pageId === 'page-bet-history') fetchBetHistory(); // New trigger
             }
         }
         
@@ -737,6 +715,7 @@
              const betDetail = document.getElementById('bet-page-betting-detail');
              const betPage = document.getElementById('page-bet');
              if (!betPage.classList.contains('hidden') && !betDetail.classList.contains('hidden')) { showBetListPage(); return; }
+             if (!document.getElementById('page-bet-history').classList.contains('hidden')) { showPage('page-bet'); return; } // Add back logic
              showPage('page-home');
         }
 
@@ -866,7 +845,6 @@
         function initLoginPage() {
             document.getElementById('login-form').addEventListener('submit', async e => { 
                 e.preventDefault(); 
-                // Apply Smart Loading
                 await withButtonLoading('btn-login', async () => {
                     const res = await callAPI('login', { username: document.getElementById('login-phone').value, password: document.getElementById('login-pin').value }); 
                     if(res.success){ updateUserDataInUI(res.data); fetchInitialData(); showPage('page-home'); } else { showModal('เข้าสู่ระบบไม่สำเร็จ', res.error || 'กรุณาตรวจสอบข้อมูล', 'error'); } 
@@ -895,7 +873,17 @@
             if (r.success) {
                 const d = r.data;
                 document.getElementById('home-slider-wrapper').innerHTML = d.sliders.map(s => `<div class="swiper-slide"><a class="block w-full" href="${s['ลิงก์ปลายทาง'] || '#'}"><img alt="${s['หัวข้อ']}" class="w-full h-auto object-cover rounded-xl" src="${s['ลิงก์รูปภาพ']}" style="aspect-ratio: 21/9;"/></a></div>`).join('');
-                new Swiper('.main-slider', { slidesPerView: 1, spaceBetween: 10, loop: true, autoplay:{delay:3000}, pagination: { el: '.swiper-pagination' } });
+                
+                // === ปรับปรุง Slider ให้แสดงกึ่งกลางและพอดี ===
+                new Swiper('.main-slider', { 
+                    slidesPerView: 'auto', // ให้ CSS กำหนดความกว้าง
+                    centeredSlides: true,  // จัดกึ่งกลาง
+                    spaceBetween: 12,      // ระยะห่าง
+                    loop: true, 
+                    autoplay:{delay:3000}, 
+                    pagination: { el: '.swiper-pagination' } 
+                });
+
                 document.getElementById('home-popular-lotto').innerHTML = d.popularLotto.map(l => `<a class="relative flex flex-col items-center bg-white rounded-xl p-3 card-shadow hover:shadow-lg transition-shadow btn-press-anim" href="#" onclick="showPage('page-bet'); showBettingPage('${l['รหัสประเภทหวย']}')"><span class="absolute top-0 right-0 bg-red-600 text-white text-[10px] px-1.5 rounded-bl-lg rounded-tr-lg font-bold">HOT</span><img alt="${l['ชื่อเต็ม']}" class="w-14 h-14 rounded-full object-cover mb-2" src="${l['ลิงก์รูปภาพ']}"/><span class="text-xs font-bold text-brand-dark text-center no-wrap-text w-full">${l['ชื่อย่อ']}</span></a>`).join('');
                 if (d.trending && d.trending.length > 0) {
                     document.getElementById('home-trending-slider').innerHTML = d.trending.map(t => `<div class="swiper-slide"><a href="${t['ลิงก์'] || '#'}" class="trending-card btn-press-anim"><img src="${t['รูปภาพ']}" alt="${t['หัวข้อ']}" class="trending-img"/><div class="trending-body"><span class="trending-title">${t['หัวข้อ']}</span></div></a></div>`).join('');
@@ -987,7 +975,6 @@
             if (totalAmount <= 0) return; 
             const summary = betState.bets.map(b => `${b.number} (${b.format}): ${b.amount} บาท`).join('\n'); 
             showModal("ยืนยันการทำรายการ", `-- สรุปรายการ ---\n${summary}\n\nรวมเป็นเงิน: ฿${totalAmount.toFixed(2)}`, "confirm", () => { 
-                // Apply Smart Loading for Betting
                 withButtonLoading('confirm-bet', async () => {
                      const r = await callAPI('placeBet', { userId: appState.currentUser.userId, lotteryType: betState.currentLotteryId, bets: JSON.stringify(betState.bets.map(({ number, format, amount }) => ({ number, format, amount }))) });
                      if(r.success) { updateUserDataInUI({ balance: r.data.newBalance }); showModal("สำเร็จ!", "ส่งโพยเรียบร้อยแล้ว", "success"); betState.bets = []; renderBetSlip(); } 
@@ -1056,7 +1043,6 @@
             document.getElementById('deposit-continue-btn').onclick = () => withButtonLoading('deposit-continue-btn', () => handleDeposit('normal')); 
             document.getElementById('withdraw-confirm-btn').onclick = () => withButtonLoading('withdraw-confirm-btn', handleWithdraw); 
             document.getElementById('slip-upload-input').addEventListener('change', handleSlipPreview); 
-            // Fix: Apply Smart Loading to Upload Confirm
             document.getElementById('upload-confirm-btn').addEventListener('click', () => withButtonLoading('upload-confirm-btn', handleSlipUpload)); 
         }
         
@@ -1146,12 +1132,11 @@
                     if(updateRes.success) { 
                         showWalletSubPage('wallet-pending-page'); 
                         fetchWalletData();
-                        clearUploadForm(); // Fix: Clear form after success
+                        clearUploadForm();
                     } else { showModal('ผิดพลาด', 'อัปเดตข้อมูลสลิปล้มเหลว', 'error'); } 
                 } else { showModal('อัปโหลดผิดพลาด', 'อัปโหลดสลิปล้มเหลว กรุณาลองใหม่', 'error'); } 
             } catch(e) { showModal('เกิดข้อผิดพลาด', 'การเชื่อมต่อล้มเหลว', 'error'); }
         }
-        // Fix: Clear form when going back
         function walletGoBackFromUpload() { 
             clearUploadForm();
             showWalletSubPage(appState.currentTransaction.type === 'normal' ? 'wallet-qr-page' : 'wallet-bank-account-page'); 
@@ -1170,6 +1155,121 @@
         function walletAppendNumber(num) { if (walletState.currentAmountString.length < 9) { walletState.currentAmountString = (walletState.currentAmountString === '0' ? num : walletState.currentAmountString + num); walletUpdateDisplay(); } }
         function walletDeleteLastDigit() { walletState.currentAmountString = walletState.currentAmountString.length > 1 ? walletState.currentAmountString.slice(0, -1) : '0'; walletUpdateDisplay(); }
         function walletStartDeposit(type) { appState.currentTransaction.type = type; showWalletSubPage('wallet-deposit-page'); }
+
+        // --- NEW FUNCTIONS (BET HISTORY) ---
+        function showBetHistoryPage() {
+            showPage('page-bet-history');
+            fetchBetHistory();
+        }
+
+        async function fetchBetHistory() {
+            const container = document.getElementById('bet-history-list');
+            container.innerHTML = '<div class="text-center py-10"><i class="fas fa-spinner fa-spin text-brand-primary text-2xl"></i><p class="text-xs text-gray-400 mt-2 font-light">กำลังโหลดข้อมูล...</p></div>';
+            
+            const res = await callAPI('getUserBetHistory', { userId: appState.currentUser.userId });
+            
+            if (res.success) {
+                appState.betHistory = res.data;
+                renderBetHistory(res.data);
+            } else {
+                container.innerHTML = '<div class="text-center py-10 text-gray-400 font-light">โหลดข้อมูลไม่สำเร็จ</div>';
+            }
+        }
+
+        function renderBetHistory(data) {
+            const container = document.getElementById('bet-history-list');
+            
+            if (!data || data.length === 0) {
+                container.innerHTML = '<div class="text-center py-10 text-gray-400 font-light flex flex-col items-center"><i class="far fa-file-alt text-4xl mb-3 opacity-30"></i>ยังไม่มีประวัติการแทง</div>';
+                document.getElementById('history-total-win').textContent = '฿0.00';
+                document.getElementById('history-count').textContent = '0';
+                return;
+            }
+
+            let totalWin = 0;
+            
+            container.innerHTML = data.map(item => {
+                const statusMap = {
+                    'pending': { label: 'รอผล', class: 'bg-yellow-100 text-yellow-700 border-yellow-200' },
+                    'won': { label: 'ถูกรางวัล', class: 'bg-green-100 text-green-700 border-green-200' },
+                    'lose': { label: 'ไม่ถูก', class: 'bg-red-50 text-red-500 border-red-100' },
+                    'cancelled': { label: 'ยกเลิก', class: 'bg-gray-100 text-gray-500 border-gray-200' }
+                };
+                
+                const st = statusMap[item.status] || statusMap['pending'];
+                if(item.status === 'won') totalWin += item.winAmount;
+
+                let dateStr = item.date;
+                try {
+                     const d = new Date(item.date);
+                     dateStr = d.toLocaleDateString('th-TH', { day: '2-digit', month: '2-digit' }) + ' ' + d.toLocaleTimeString('th-TH', {hour: '2-digit', minute:'2-digit'});
+                } catch(e){}
+
+                return `
+                <div class="bg-white rounded-xl p-3 card-shadow border border-gray-100 relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-green-700 text-xs font-bold">
+                                ${item.lotteryName.substring(0,2)}
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-gray-800">${item.lotteryName}</h4>
+                                <p class="text-[10px] text-gray-400 font-light">${dateStr}</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full border font-bold ${st.class}">${st.label}</span>
+                    </div>
+                    
+                    <div class="flex justify-between items-center bg-gray-50 rounded-lg p-2 mb-2">
+                        <div class="text-center flex-1 border-r border-gray-200">
+                            <p class="text-[10px] text-gray-400 font-light">เลขที่แทง</p>
+                            <p class="text-lg font-bold text-brand-dark">${item.number}</p>
+                        </div>
+                        <div class="text-center flex-1">
+                            <p class="text-[10px] text-gray-400 font-light">ประเภท</p>
+                            <p class="text-sm font-bold text-gray-600">${item.type}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center text-xs">
+                        <div>
+                            <span class="text-gray-400 font-light">เดิมพัน:</span> 
+                            <span class="font-bold">฿${formatCurrency(item.amount)}</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-400 font-light">ผลรางวัล:</span> 
+                            <span class="font-bold ${item.winAmount > 0 ? 'text-green-600' : 'text-gray-800'}">
+                                ${item.winAmount > 0 ? '+' + formatCurrency(item.winAmount) : '-'}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+            
+            document.getElementById('history-total-win').textContent = '฿' + formatCurrency(totalWin);
+            document.getElementById('history-count').textContent = data.length;
+        }
+
+        function filterBetHistory(type) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === type) {
+                    btn.classList.add('bg-brand-teal', 'text-white');
+                    btn.classList.remove('bg-white', 'text-gray-600', 'border-gray-200');
+                } else {
+                    btn.classList.remove('bg-brand-teal', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-600', 'border-gray-200');
+                }
+            });
+
+            if (!appState.betHistory) return;
+            
+            let filtered = appState.betHistory;
+            if (type !== 'all') {
+                filtered = appState.betHistory.filter(item => item.status === type);
+            }
+            renderBetHistory(filtered);
+        }
 
     </script>
 </body>
