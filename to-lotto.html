@@ -198,7 +198,6 @@
 
         <main id="main-content-area" class="flex-grow pb-20"> 
 
-            <!-- Login Page -->
             <section id="page-login" class="p-6 min-h-screen flex flex-col justify-center items-center login-bg">
                 <div class="login-decorator-1"></div>
                 <div class="login-decorator-2"></div>
@@ -256,7 +255,6 @@
                 </div>
             </section>
             
-            <!-- Home Page -->
             <section id="page-home" class="hidden p-0 bg-white"> 
                 <div class="relative mt-4">
                     <div class="swiper-container main-slider">
@@ -306,7 +304,6 @@
                 </section>
             </section>
             
-            <!-- Bet Page -->
             <section id="page-bet" class="hidden">
                 <div id="bet-page-lottery-list" class="p-4 bg-[var(--background-color)] min-h-[calc(100vh-100px)]">
                     <div class="flex justify-between items-center px-2 my-4">
@@ -372,7 +369,6 @@
                 </div>
             </section>
             
-            <!-- NEW SECTION: Bet History Page -->
             <section id="page-bet-history" class="hidden bg-[var(--background-color)] min-h-[calc(100vh-70px)]">
                 <div class="bg-brand-gradient p-4 text-white sticky top-0 z-10 shadow-md">
                     <div class="flex items-center gap-3">
@@ -384,7 +380,6 @@
                 </div>
                 
                 <div class="p-4">
-                    <!-- Filters -->
                     <div class="flex gap-2 mb-4 overflow-x-auto pb-2 no-scrollbar">
                         <button onclick="filterBetHistory('all')" class="px-4 py-2 rounded-full bg-brand-teal text-white text-xs font-bold whitespace-nowrap btn-press-anim filter-btn active" data-filter="all">ทั้งหมด</button>
                         <button onclick="filterBetHistory('won')" class="px-4 py-2 rounded-full bg-white text-gray-600 text-xs font-bold whitespace-nowrap border border-gray-200 btn-press-anim filter-btn" data-filter="won">ถูกรางวัล</button>
@@ -392,7 +387,6 @@
                         <button onclick="filterBetHistory('lose')" class="px-4 py-2 rounded-full bg-white text-gray-600 text-xs font-bold whitespace-nowrap border border-gray-200 btn-press-anim filter-btn" data-filter="lose">ไม่ถูกรางวัล</button>
                     </div>
 
-                    <!-- Summary Card -->
                     <div class="bg-white rounded-xl p-4 card-shadow mb-4 flex justify-between items-center">
                         <div>
                             <p class="text-xs text-gray-400 font-light">ยอดถูกรางวัลรวม (หน้าจอนี้)</p>
@@ -404,7 +398,6 @@
                         </div>
                     </div>
 
-                    <!-- History List -->
                     <div id="bet-history-list" class="space-y-3 pb-20">
                         <div class="text-center py-10">
                             <i class="fas fa-spinner fa-spin text-brand-primary text-2xl"></i>
@@ -414,7 +407,6 @@
                 </div>
             </section>
 
-            <!-- Results Page -->
             <section id="page-results" class="hidden p-4">
                 <div class="flex-1 overflow-y-auto">
                     <h1 class="text-3xl font-extrabold mb-6 text-[var(--text-on-light)]">เช็คผลรางวัล</h1>
@@ -440,7 +432,6 @@
                 </div>
             </section>
 
-            <!-- Wallet Page -->
             <section id="page-wallet" class="hidden bg-[var(--background-color)] min-h-[calc(100vh-70px)]">
                 <div id="wallet-main-content" class="p-4 space-y-4">
                     <div><h2 class="text-lg font-bold text-brand-dark">ระบบอัตโนมัติ</h2><h1 class="text-2xl font-extrabold text-brand-teal">ฝาก-ถอน รวดเร็ว</h1></div>
@@ -483,7 +474,6 @@
                 <div id="wallet-history-page" class="hidden p-4"><div class="flex items-center gap-3 mb-4"><button onclick="showWalletSubPage('wallet-main-content')" class="text-xl text-brand-dark btn-press-anim"><i class="fas fa-arrow-left"></i></button><h1 class="text-2xl font-bold text-brand-primary">ประวัติธุรกรรม</h1></div><div id="wallet-history-list" class="space-y-4"></div></div>
             </section>
             
-            <!-- Profile Page -->
             <section id="page-profile" class="hidden bg-brand-teal-gradient min-h-[calc(100vh-70px)]">
                  <div class="p-4 pt-0"><h1 class="text-white text-3xl font-bold">โปรไฟล์</h1></div>
                 <div class="content-area p-4 space-y-4">
@@ -525,7 +515,6 @@
             </a>
         </nav>
         
-        <!-- Chat Widget -->
         <div id="chat-widget" class="fixed bottom-24 right-4 z-50 flex flex-col items-end hidden">
             <div id="chat-window" class="hidden bg-white w-72 h-96 rounded-2xl shadow-2xl mb-3 flex flex-col overflow-hidden border border-gray-100 chat-window-anim">
                 <div class="bg-brand-gradient p-4 text-white flex justify-between items-center shadow-md">
@@ -557,7 +546,6 @@
             </button>
         </div>
 
-        <!-- Article Modal (Professional) -->
         <div id="article-modal" class="modal-overlay hidden">
             <div class="bg-white w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[85vh]">
                 <div class="relative">
@@ -577,7 +565,6 @@
 
     </div>
 
-    <!-- Other Modals (Promo, Alert) -->
     <div id="modal-overlay" class="modal-overlay hidden"><div class="modal-content"></div></div>
     <div id="app-toast" class="fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-5 py-3 rounded-xl shadow-lg font-bold text-sm opacity-0 pointer-events-none transition-all duration-300"></div>
     
@@ -983,23 +970,38 @@
             }); 
         }
         
+        // =========================================================
+        // ฟังก์ชันดึงผลรางวัล (แก้ไขใหม่: ให้แสดงตามช่องที่ถูกต้อง)
+        // =========================================================
         function fetchResults() {
             const container = document.getElementById('results-container');
             const spinner = document.getElementById('loading-spinner');
-            spinner.classList.remove('hidden'); container.innerHTML = ''; 
+            
+            spinner.classList.remove('hidden'); 
+            container.innerHTML = ''; 
+            
             const typeFilter = document.getElementById('lottery-type-filter').value;
+
             callAPI('getLatestResults', {}).then(res => {
                 spinner.classList.add('hidden');
+                
                 if (res.success && res.data.length > 0) {
                     const data = res.data;
+                    
+                    // กรองข้อมูลตาม Dropdown
                     let filtered = typeFilter === 'ALL' ? data : data.filter(x => x['รหัสประเภทหวย'] === typeFilter);
-                    if (filtered.length === 0) { container.innerHTML = `<div class="text-center py-10 bg-white rounded-xl shadow-sm border border-gray-100"><i class="fas fa-exclamation-circle text-2xl text-red-500 mb-3"></i><p class="text-gray-500 font-light">ไม่พบข้อมูลผลรางวัลสำหรับประเภทนี้</p></div>`; return; }
-                    container.innerHTML = filtered.map(item => {
-                        const typeId = item['รหัสประเภทหวย'];
-                        const mappedItem = { lotteryTypeId: typeId, lotteryName: item.lotteryName || typeId, lotteryFlag: item.lotteryFlag || 'https://placehold.co/20x20/ccc/fff?text=?', drawDate: item['งวดวันที่'], prize6: item['รางวัล6ตัว'], prizeFirst: item['รางวัล6ตัว'], prizeLast2: item['2ตัวล่าง'], prizeFirst3: item['3ตัวหน้า'], prizeLast3: item['3ตัวหลัง'], status: (item['รางวัล6ตัว'] === 'รอผล...' || !item['รางวัล6ตัว']) ? 'pending' : 'completed' };
-                        return renderResultItem(mappedItem);
-                    }).join('');
-                } else { container.innerHTML = '<p class="text-center text-red-500 py-10">โหลดข้อมูลล้มเหลว หรือยังไม่มีผลรางวัล</p>'; }
+
+                    if (filtered.length === 0) { 
+                        container.innerHTML = `<div class="text-center py-10 bg-white rounded-xl shadow-sm border border-gray-100"><i class="fas fa-exclamation-circle text-2xl text-red-500 mb-3"></i><p class="text-gray-500 font-light">ไม่พบข้อมูลผลรางวัลสำหรับประเภทนี้</p></div>`; 
+                        return; 
+                    }
+
+                    // แสดงผลรายการ
+                    container.innerHTML = filtered.map(item => renderResultItem(item)).join('');
+
+                } else { 
+                    container.innerHTML = '<p class="text-center text-red-500 py-10">โหลดข้อมูลล้มเหลว หรือยังไม่มีผลรางวัล</p>'; 
+                }
             });
         }
 
@@ -1010,24 +1012,68 @@
             Object.values(appState.lotteryTypes).forEach(l => { s.innerHTML += `<option value="${l.id}">${l.name}</option>`; });
         }
 
+        // =========================================================
+        // ฟังก์ชันแสดงการ์ดผลรางวัล (แก้ไขใหม่: ดึงเลขจากชีทมาใส่ให้ตรงช่อง)
+        // =========================================================
         function renderResultItem(result) {
-            const info = flagMap[result.lotteryTypeId] || { country: 'อื่น ๆ', flag: 'https://placehold.co/20x20/fff/000?text=?' };
-            const lotteryName = result.lotteryName; const flagUrl = result.lotteryFlag;
-            let dateStr = result.drawDate; try { const d = new Date(result.drawDate); if (!isNaN(d.getTime())) { dateStr = d.toLocaleDateString('th-TH', { day: '2-digit', month: '2-digit', year: 'numeric' }); } } catch(e) {}
-            const isPending = (result.prizeFirst === 'รอผล...' || !result.prizeFirst); const statusClass = isPending ? 'text-yellow-600' : 'text-green-600'; const statusText = isPending ? 'รอผลออก' : 'ออกผลแล้ว';
-            let prizeDisplay = ''; let detailHtml = '';
-            if (result.lotteryTypeId === 'TH_GOV') {
-                prizeDisplay = result.prize6 || 'รอผล...';
-                detailHtml = `<div class="flex-1 text-center border-r border-gray-200"><div class="text-sm font-bold text-red-600">${result.prizeLast3 || 'รอผล...'}</div><div class="text-[9px] font-normal text-gray-500">3 ตัวบน</div></div><div class="flex-1 text-center border-r border-gray-200"><div class="text-sm font-bold">${result.prizeLast2 || 'รอผล...'}</div><div class="text-[9px] font-normal text-gray-500">2 ตัวล่าง</div></div><div class="flex-1 text-center"><div class="text-sm font-bold">${result.prizeFirst3 ? result.prizeFirst3.split(',')[0].trim() : 'รอผล...'}</div><div class="text-[9px] font-normal text-gray-500">3 ตัวหน้า</div></div>`;
-            } else {
-                prizeDisplay = result.prize6 || 'รอผล...';
-                const p3Top = (result.prize6 && result.prize6 !== 'รอผล...' && result.prize6.length >= 3) ? result.prize6.slice(-3) : 'รอผล...';
-                const p2Top = (result.prize6 && result.prize6 !== 'รอผล...' && result.prize6.length >= 2) ? result.prize6.slice(-2) : 'รอผล...';
-                 detailHtml = `<div class="flex-1 text-center border-r border-gray-200"><div class="text-sm font-bold text-red-600">${p3Top}</div><div class="text-[9px] font-normal text-gray-500">3 ตัวบน</div></div><div class="flex-1 text-center border-r border-gray-200"><div class="text-sm font-bold">${result.prizeLast2 || 'รอผล...'}</div><div class="text-[9px] font-normal text-gray-500">2 ตัวล่าง</div></div><div class="flex-1 text-center"><div class="text-sm font-bold">${p2Top}</div><div class="text-[9px] font-normal text-gray-500">2 ตัวบน</div></div>`;
-            }
-            const mainPrizeClass = (result.lotteryTypeId === 'TH_GOV' && !isPending) ? 'text-2xl text-red-600' : 'text-xl text-brand-primary';
-            const safeId = result.lotteryTypeId; const safeDate = result.drawDate;
-            return `<div class="bg-surface rounded-xl p-4 card-shadow border border-gray-100"><div class="flex justify-between items-start mb-3 border-b pb-2"><div class="flex items-center space-x-2 text-sm font-bold text-[var(--text-on-light)]"><img alt="${lotteryName}" class="w-6 h-6 rounded-full border" src="${flagUrl}"/><span>${lotteryName}</span></div><div class="text-xs text-gray-400 text-right font-light">${dateStr} <br><span class="${statusClass} font-bold">${statusText}</span></div></div><div class="text-center mb-4"><p class="text-xs text-gray-500 font-medium-custom">รางวัลที่ 1 / รางวัลหลัก</p><p class="font-extrabold ${mainPrizeClass}">${prizeDisplay}</p></div><div class="flex justify-between items-stretch bg-gray-50 p-3 rounded-lg border">${detailHtml}</div><button onclick="showDetailModal('${safeId}', '${safeDate}')" class="w-full mt-4 text-brand-primary text-xs font-bold py-2 rounded-lg border border-brand-primary hover:bg-brand-primary hover:text-white transition duration-200 btn-press-anim">ดูผลรางวัลทั้งหมด</button></div>`;
+            // ดึงข้อมูลจากชีท LotteryResults (ตามคอลัมน์ที่เราทำไว้)
+            const id = result['รหัสประเภทหวย'];
+            const name = result.lotteryName || id; // ชื่อหวย
+            const flag = result.lotteryFlag || 'https://placehold.co/40x40?text=' + id.substring(0,2);
+            const dateStr = result['งวดวันที่'] || '-'; // คอลัมน์ C
+            
+            // ดึงตัวเลข (ถ้าไม่มีข้อมูลให้แสดง - หรือ รอผล)
+            let p6 = result['รางวัล6ตัว'] || '-'; // คอลัมน์ D
+            let p3top = result['3ตัวหลัง'] || '-'; // คอลัมน์ H (ใช้เป็น 3 ตัวบนสำหรับหวยหุ้น)
+            let p2bot = result['2ตัวล่าง'] || '-'; // คอลัมน์ I
+            
+            // จัดการสถานะ (ถ้าเลขว่าง หรือเป็นคำว่า รอผล)
+            const isPending = (p3top === 'รอผล' || p3top === '-' || p3top === '');
+            const statusClass = isPending ? 'text-yellow-600 bg-yellow-100' : 'text-green-600 bg-green-100';
+            const statusText = isPending ? 'รอผล' : 'ออกผลแล้ว';
+            
+            // เลือกตัวเลขที่จะโชว์ตัวใหญ่ (Main Prize)
+            // ถ้าเป็นหวยรัฐบาล/ลาว (มี 6 ตัว) ให้โชว์ 6 ตัว
+            // ถ้าเป็นหวยหุ้น/ฮานอย/ยี่กี (ไม่มี 6 ตัว) ให้โชว์ 3 ตัวบน แทน
+            let mainPrize = (p6 !== '-' && p6 !== '') ? p6 : p3top;
+            let mainLabel = (p6 !== '-' && p6 !== '') ? 'รางวัลที่ 1' : 'เลข 3 ตัวบน';
+
+            // จัดการสีตัวเลข
+            const prizeColor = isPending ? 'text-gray-400' : 'text-brand-primary';
+
+            return `
+            <div class="bg-white rounded-xl p-4 card-shadow border border-gray-100 mb-4 relative overflow-hidden">
+                <div class="flex justify-between items-start mb-3 border-b border-gray-50 pb-2">
+                    <div class="flex items-center space-x-3">
+                        <img alt="${name}" class="w-10 h-10 rounded-full border shadow-sm object-cover" src="${flag}"/>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-base leading-tight">${name}</h3>
+                            <p class="text-xs text-gray-400 font-light mt-0.5"><i class="far fa-calendar-alt mr-1"></i>${dateStr}</p>
+                        </div>
+                    </div>
+                    <span class="text-[10px] px-2 py-1 rounded-full font-bold ${statusClass}">${statusText}</span>
+                </div>
+
+                <div class="text-center py-2 bg-green-50/50 rounded-lg mb-4 border border-green-50">
+                    <p class="text-[10px] text-gray-500 font-medium-custom mb-1">${mainLabel}</p>
+                    <p class="font-extrabold text-3xl ${prizeColor} tracking-wider">${mainPrize}</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-gray-50 p-2 rounded-lg text-center border border-gray-100">
+                        <p class="text-[10px] text-gray-400 font-light mb-1">3 ตัวบน</p>
+                        <p class="font-bold text-lg text-red-600">${p3top}</p>
+                    </div>
+                    <div class="bg-gray-50 p-2 rounded-lg text-center border border-gray-100">
+                        <p class="text-[10px] text-gray-400 font-light mb-1">2 ตัวล่าง</p>
+                        <p class="font-bold text-lg text-blue-600">${p2bot}</p>
+                    </div>
+                </div>
+
+                <button onclick="showDetailModal('${id}', '${dateStr}')" class="w-full mt-4 flex items-center justify-center gap-1 text-gray-400 text-xs font-bold py-2 hover:text-brand-primary transition duration-200 btn-press-anim">
+                    ดูรายละเอียดเพิ่มเติม <i class="fas fa-chevron-right text-[10px]"></i>
+                </button>
+            </div>`;
         }
 
         function showDetailModal(typeId, date) {
